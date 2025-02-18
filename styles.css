@@ -1,0 +1,208 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #000000, #001f3f);
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: white;
+    text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.3);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+h4 {
+    font-size: 2.5em;
+    color: rgb(130, 90, 239);
+    text-shadow: 3px 3px 10px rgba(255, 255, 255, 0.3);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Supaya otomatis turun ke bawah jika ruang tidak cukup */
+    gap: 20px;
+    max-width: 900px;
+    margin: auto;
+    transform: translateY(20px);
+    animation: slideUp 1s ease-in-out forwards;
+}
+
+/* Ukuran card tetap fleksibel */
+.winner-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    width: 250px; /* Tetap menjaga ukuran kartu */
+    max-width: 90%; /* Supaya kartu tidak terlalu besar di layar kecil */
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    border: 2px solid #fff;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    position: relative;
+    animation: bounceIn 1s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Supaya kartu pemenang tampil ke bawah */
+        align-items: center;
+    }
+
+    .winner-box {
+        width: 80%; /* Biar lebih pas di layar HP */
+        max-width: 300px;
+    }
+}
+
+.winner-box:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.winner-box img {
+    width: 60px;
+    height: 60px;
+    animation: rotate 3s linear infinite;
+}
+
+.winner-box h2 {
+    font-size: 24px;
+    color: yellow;
+    margin: 10px 0;
+}
+
+.name {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.major {
+    font-size: 18px;
+    font-style: italic;
+}
+
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 15px;
+    opacity: 0.9;
+    transform: rotate(45deg);
+    animation: fall linear infinite, sway 2s ease-in-out infinite alternate;
+}
+
+/* Animasi jatuh */
+@keyframes fall {
+    from {
+        top: -10vh;
+        opacity: 1;
+    }
+    to {
+        top: 100vh;
+        opacity: 0;
+    }
+}
+
+/* Efek goyangan saat jatuh */
+@keyframes sway {
+    from {
+        transform: translateX(-10px) rotate(0deg);
+    }
+    to {
+        transform: translateX(10px) rotate(360deg);
+    }
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+    animation: scaleUp 0.5s;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: red;
+}
+
+/* Animasi modal */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0.7); }
+    to { transform: scale(1); }
+}
+
+
+/* Warna untuk juara */
+.first { border-color: red; background: rgba(255, 0, 0, 0.8); }
+.second { border-color: green; background: rgba(0, 128, 0, 0.8); }
+.third { border-color: yellow; background: rgba(255, 255, 0, 0.8); }
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+

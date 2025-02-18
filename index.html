@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengumuman Pemenang</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Pengumuman Pemenang Quiz</h1>
+    <h4>Click The Card</h4>
+    <div class="container">
+
+        <!-- Modal untuk Menampilkan Hadiah -->
+    <div id="prize-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="prize-title"></h2>
+        <p id="prize-message"></p>
+    </div>
+</div>
+
+
+        <div class="winner-box second">
+            <h2>Juara 2</h2>
+            <p class="name">Budi</p>
+            <p class="major">Teknik Informatika</p>
+        </div>
+        <div class="winner-box first">
+            <h2>Juara 1</h2>
+            <p class="name">Ani</p>
+            <p class="major">Manajemen</p>
+        </div>
+        <div class="winner-box third">
+            <h2>Juara 3</h2>
+            <p class="name">Citra</p>
+            <p class="major">Akuntansi</p>
+        </div>
+    </div>
+    <div class="confetti-container"></div>
+<script src="script.js"></script>
+
+<script>
+    // Tentukan tanggal rilis (format: YYYY-MM-DD)
+    const releaseDate = new Date("2025-02-13"); // Ganti dengan tanggal yang kamu inginkan
+    const currentDate = new Date(); // Ambil tanggal saat ini
+
+    // Jika tanggal sekarang kurang dari tanggal rilis, tampilkan pesan & blok akses
+    if (currentDate < releaseDate) {
+        document.body.innerHTML = "<h1 style='text-align:center; margin-top:20%; color:red;'>🚫 Website belum tersedia. Silakan kembali pada " + releaseDate.toDateString() + " 🚫</h1>";
+    }
+</script>
+
+
+</body>
+</html>
