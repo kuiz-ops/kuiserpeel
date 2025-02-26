@@ -3,7 +3,15 @@ body {
     background: linear-gradient(to right, #000000, #001f3f);
     text-align: center;
     padding: 20px;
-    overflow: hidden;
+    overflow-x: hidden; /* Hindari scroll horizontal */
+    overflow-y: auto; /* Pastikan halaman bisa di-scroll */
+    height: 100vh; /* Pastikan body mengikuti tinggi layar */
+}
+
+html {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling di iOS */
 }
 
 h1 {
@@ -23,23 +31,23 @@ h4 {
 .container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Supaya otomatis turun ke bawah jika ruang tidak cukup */
+    flex-wrap: wrap;
     gap: 20px;
     max-width: 900px;
     margin: auto;
     transform: translateY(20px);
     animation: slideUp 1s ease-in-out forwards;
+    padding-bottom: 50px; /* Tambahin padding bawah biar gak mentok */
 }
 
-/* Ukuran card tetap fleksibel */
 .winner-box {
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 15px;
     color: white;
     text-align: center;
-    width: 250px; /* Tetap menjaga ukuran kartu */
-    max-width: 90%; /* Supaya kartu tidak terlalu besar di layar kecil */
+    width: 250px;
+    max-width: 90%;
     box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
     border: 2px solid #fff;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -49,12 +57,12 @@ h4 {
 
 @media screen and (max-width: 768px) {
     .container {
-        flex-direction: column; /* Supaya kartu pemenang tampil ke bawah */
+        flex-direction: column;
         align-items: center;
     }
 
     .winner-box {
-        width: 80%; /* Biar lebih pas di layar HP */
+        width: 80%;
         max-width: 300px;
     }
 }
@@ -106,7 +114,6 @@ h4 {
     animation: fall linear infinite, sway 2s ease-in-out infinite alternate;
 }
 
-/* Animasi jatuh */
 @keyframes fall {
     from {
         top: -10vh;
@@ -118,7 +125,6 @@ h4 {
     }
 }
 
-/* Efek goyangan saat jatuh */
 @keyframes sway {
     from {
         transform: translateX(-10px) rotate(0deg);
@@ -176,7 +182,6 @@ h4 {
     to { transform: scale(1); }
 }
 
-
 /* Warna untuk juara */
 .first { border-color: red; background: rgba(255, 0, 0, 0.8); }
 .second { border-color: green; background: rgba(0, 128, 0, 0.8); }
@@ -203,6 +208,3 @@ h4 {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-
-
-
